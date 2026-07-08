@@ -5,10 +5,10 @@
 **Instituição:** Universidade Federal do Ceará - Campus Sobral 
 
 ## Equipe - 09
-*Gabriela da Silva Melo e Costa 556863
-*Isabela da Silva Melo e Costa 556773
-*Karen Stephan da Penha Sousa 558425
-*Maria Beatriz Vitorino Almeida 554155
+* Gabriela da Silva Melo e Costa (556863)
+* Isabela da Silva Melo e Costa (556773)
+* Karen Stephan da Penha Sousa (558425)
+* Maria Beatriz Vitorino Almeida (554155)
 
 
 
@@ -51,17 +51,15 @@ Certifique-se de ter o Python 3.10+ instalado.
 2. Crie uma pasta chamada *dados* na raiz do projeto (se já não existir) e cole o arquivo baixado dentro dela. O caminho deve ficar exatamente assim: *dados/water_potability.csv.*
    
 #### 3. Execução e Orquestração
-
-### Opção 01
-   1.Limpeza e Validação de Dados (DataOps)**
+**Passo 1: Limpeza e Validação de Dados (DataOps)**
 Execute o script abaixo para tratar dados ausentes, remover duplicatas e validar as regras de negócio utilizando a biblioteca Great Expectations.
 `python scripts/01_limpar_validar_dados.py`
 
-   2.Treinamento e Benchmarking (MLOps)**
+**Passo 2: Treinamento e Benchmarking (MLOps)**
 Execute o script abaixo para separar os dados, aplicar imputação (KNNImputer) e padronização (StandardScaler), e treinar 6 classificadores diferentes (Regressão Logística, Decision Tree, Random Forest, XGBoost, SVM e LightGBM).
 `python scripts/02_treinar_modelos_mlflow.py`
 
-   3.Visualização dos Resultados no MLflow**
+**Passo 3: Visualização dos Resultados no MLflow**
 Inicie o servidor do MLflow para comparar as métricas dos modelos treinados:
 `mlflow ui --backend-store-uri sqlite:///mlflow.db`
 Acesse `http://127.0.0.1:5000` no seu navegador.
@@ -76,5 +74,5 @@ Acesse `http://127.0.0.1:5000` no seu navegador.
       deactivate
 
 ## Vídeo de Demonstração
-Assista à demonstração completa do funcionamento do projeto e análise dos modelos no link abaixo:
+Assista à demonstração completa do funcionamento do projeto e análise dos modelos no link:
 **(https://www.youtube.com/watch?v=DjqMyH_w66Q)**
