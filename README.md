@@ -64,10 +64,11 @@ python scripts/02_treinar_modelos_mlflow.py
 3. Visualização dos Resultados no MLflow
 Inicie o servidor do MLflow para comparar as métricas dos modelos treinados:
 ```bash
-`mlflow ui --backend-store-uri sqlite:///mlflow.db`
+mlflow ui --backend-store-uri sqlite:///mlflow.db
 ```
+Acesse no seu navegador:
 ```bash
-Acesse `http://127.0.0.1:5000` no seu navegador.
+http://127.0.0.1:5000
 ```  
 #### 4. Finalizando os Processos
    1. Para encerrar o servidor temporário do Prefect no terminal, pressione Ctrl + C.
