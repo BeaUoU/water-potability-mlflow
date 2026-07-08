@@ -66,7 +66,7 @@ Inicie o servidor do MLflow para comparar as métricas dos modelos treinados:
 ```bash
 mlflow ui --backend-store-uri sqlite:///mlflow.db
 ```
-Acesse no seu navegador:
+4. Acesse no seu navegador:
 ```bash
 http://127.0.0.1:5000
 ```  
