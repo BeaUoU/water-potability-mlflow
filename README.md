@@ -1,5 +1,22 @@
-# water-potability-mlflow
-Projeto Final da disciplina de Tópicos Especiais I (2026.1) - UFC Sobral
+# Projeto de Automação na Análise de Dados da Crise Global da Água Potável
+
+**Disciplina:** Tópicos Especiais em Computação I (2026.1) - Ciência de Dados  
+**Professor:** Iális Cavalcante de Paula Junior  
+**Instituição:** Universidade Federal do Ceará - Campus Sobral 
+
+## Equipe - 09
+*Gabriela da Silva Melo e Costa 556863
+*Isabela da Silva Melo e Costa 556773
+*Karen Stephan da Penha Sousa 558425
+*Maria Beatriz Vitorino Almeida 554155
+
+
+
+## Sobre o Projeto
+De acordo com a Organização Mundial da Saúde (OMS) e a UNICEF, bilhões de pessoas sofrem com a falta de acesso à água segura para consumo. O objetivo deste projeto é construir e avaliar modelos preditivos de classificação supervisionada para determinar se uma amostra de água é potável ou não. Esta solução serve como uma ferramenta de triagem automatizada e de baixo custo para populações vulneráveis.
+
+Utilizamos o dataset **Water Potability** do Kaggle, que contém variáveis químicas como pH, Dureza, Sólidos Dissolvidos, Sulfato, entre outros. O projeto contempla um pipeline completo de DataOps (limpeza e validação) e MLOps (treinamento, rastreamento e registro de modelos).
+
 ### Passo a Passo de Como Executar o Treinamento
 
 * **Link da Base de Dados:** [Kaggle - Water Potability](https://www.kaggle.com/datasets/adityakadiwal/water-potability)
@@ -8,13 +25,16 @@ Projeto Final da disciplina de Tópicos Especiais I (2026.1) - UFC Sobral
 ---
 
 #### 1. Preparação do Ambiente
+Certifique-se de ter o Python 3.10+ instalado.
 
-1. Abra o seu terminal no VS Code (recomendado utilizar o **CMD** se estiver no Windows).
+1. Clone este repositório.
+   
+2. Abra o seu terminal no VS Code (recomendado utilizar o **CMD** se estiver no Windows).
 
-2. Crie o ambiente virtual (venv):
+3. Crie o ambiente virtual (venv):
    ```bash
    python -m venv venv
-3. Ative o ambiente virtual:
+4. Ative o ambiente virtual:
   * No CMD (Prompt de Comando):
     ```bash
     venv\Scripts\activate.bat
@@ -31,10 +51,20 @@ Projeto Final da disciplina de Tópicos Especiais I (2026.1) - UFC Sobral
 2. Crie uma pasta chamada *dados* na raiz do projeto (se já não existir) e cole o arquivo baixado dentro dela. O caminho deve ficar exatamente assim: *dados/water_potability.csv.*
    
 #### 3. Execução e Orquestração
-1. Execute o pipeline de MLOps & DataOps. Este arquivo utilizará o Prefect para orquestrar e rodar automaticamente a limpeza, validação (Great Expectations), treino de 5 modelos e a promoção do campeão:
-    ```bash
-    python scripts/03_orquestrador_prefect.py
-  Após a conclusão, o seu navegador abrirá automaticamente o painel de experimentos do MLflow na porta 5002.
+
+### Opção 01
+   1.Limpeza e Validação de Dados (DataOps)**
+Execute o script abaixo para tratar dados ausentes, remover duplicatas e validar as regras de negócio utilizando a biblioteca Great Expectations.
+`python scripts/01_limpar_validar_dados.py`
+
+   2.Treinamento e Benchmarking (MLOps)**
+Execute o script abaixo para separar os dados, aplicar imputação (KNNImputer) e padronização (StandardScaler), e treinar 6 classificadores diferentes (Regressão Logística, Decision Tree, Random Forest, XGBoost, SVM e LightGBM).
+`python scripts/02_treinar_modelos_mlflow.py`
+
+   3.Visualização dos Resultados no MLflow**
+Inicie o servidor do MLflow para comparar as métricas dos modelos treinados:
+`mlflow ui --backend-store-uri sqlite:///mlflow.db`
+Acesse `http://127.0.0.1:5000` no seu navegador.
   
 #### 4. Finalizando os Processos
    1. Para encerrar o servidor temporário do Prefect no terminal, pressione Ctrl + C.
@@ -44,4 +74,7 @@ Projeto Final da disciplina de Tópicos Especiais I (2026.1) - UFC Sobral
    3. Para sair do ambiente virtual (venv), digite:
        ```bash
       deactivate
-  
+
+## Vídeo de Demonstração
+Assista à demonstração completa do funcionamento do projeto e análise dos modelos no link abaixo:
+**(https://www.youtube.com/watch?v=DjqMyH_w66Q)**
