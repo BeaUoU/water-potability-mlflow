@@ -1,0 +1,23 @@
+
+Baixe o arquivo da base de dados e coloque-o em uma pasta chamada `dados`
+---> link da Base de Dados: https://www.kaggle.com/datasets/adityakadiwal/water-potability
+---> Acesso Mlflow: http://localhost:5002
+
+1. Abra o Terminal no VScode ( recomendado usar o cmd )
+
+2. Instale o Ambiente Virtual : python -m venv venv
+
+3. Ative o Ambiente Virtual: venv\Scripts\activate.bat (cmd)
+                              ou
+                              .\venv\Scripts\Activate.ps1 (powershell)
+
+4. Instalar todas as bibliotecas necessarias: python -m pip install -r requirements.txt
+
+5. Rodar o Sistema MLOps & DataOps (Esse eh o arquivo que vai rodar e orquestrar todo os scripts ): python scripts/03_orquestrador_prefect.py
+
+6. Para encerrar o servidor temporário do Prefect no terminal, pressione Ctrl + C
+
+7. Se o processo do MLflow continuar rodando em segundo plano no Windows (impedindo a limpeza de arquivos), você pode forçar o encerramento executando o comando abaixo em um novo terminal:
+   taskkill /F /IM python.exe /T
+
+8. Para sair do ambiente virtual (venv) no prompt de comando, digite `deactivate`.
