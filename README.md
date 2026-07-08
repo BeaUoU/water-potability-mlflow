@@ -51,21 +51,24 @@ Certifique-se de ter o Python 3.10+ instalado.
 2. Crie uma pasta chamada *dados* na raiz do projeto (se já não existir) e cole o arquivo baixado dentro dela. O caminho deve ficar exatamente assim: *dados/water_potability.csv.*
    
 #### 3. Execução e Orquestração
-   1.Limpeza e Validação de Dados (DataOps)**
-   Execute o script abaixo para tratar dados ausentes, remover duplicatas e validar as regras de negócio utilizando a biblioteca Great Expectations:
-   ```bash
-   python scripts/01_limpar_validar_dados.py
-   ```
-
-**Passo 2: Treinamento e Benchmarking (MLOps)**
-Execute o script abaixo para separar os dados, aplicar imputação (KNNImputer) e padronização (StandardScaler), e treinar 6 classificadores diferentes (Regressão Logística, Decision Tree, Random Forest, XGBoost, SVM e LightGBM).
-`python scripts/02_treinar_modelos_mlflow.py`
-
-**Passo 3: Visualização dos Resultados no MLflow**
+1. Limpeza e Validação de Dados (DataOps)
+Execute o script abaixo para tratar dados ausentes, remover duplicatas e validar as regras de negócio utilizando a biblioteca Great Expectations:
+```bash
+python scripts/01_limpar_validar_dados.py
+```
+2. Treinamento e Benchmarking (MLOps)
+Execute o script abaixo para separar os dados, aplicar imputação (KNNImputer) e padronização (StandardScaler), e treinar 6 classificadores diferentes (Regressão Logística, Decision Tree, Random Forest, XGBoost, SVM e LightGBM):
+```bash
+python scripts/02_treinar_modelos_mlflow.py
+```
+3. Visualização dos Resultados no MLflow
 Inicie o servidor do MLflow para comparar as métricas dos modelos treinados:
+```bash
 `mlflow ui --backend-store-uri sqlite:///mlflow.db`
+```
+```bash
 Acesse `http://127.0.0.1:5000` no seu navegador.
-  
+```  
 #### 4. Finalizando os Processos
    1. Para encerrar o servidor temporário do Prefect no terminal, pressione Ctrl + C.
    2. Se o processo do MLflow continuar rodando em segundo plano no Windows (impedindo a limpeza de arquivos), você pode forçar o encerramento executando o comando abaixo em um novo terminal:
